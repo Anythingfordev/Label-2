@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ai-image-transformer
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FAL_KEY
+        value: 03c9ee28-16c8-4298-ada8-a6cba2de94be:112a61e5bab77062736544e5ef9b2141 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Transformer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-magic"></i> AI Image Transformer</h1>
+            <p>Upload an image and describe how you want to transform it</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload Your Image</h3>
+                        <p>Drag and drop your image here or click to browse</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <button class="upload-btn" onclick="document.getElementById('imageInput').click()">
+                            Choose File
+                        </button>
+                    </div>
+                </div>
+
+                <div class="prompt-section">
+                    <label for="promptInput">Describe the transformation you want:</label>
+                    <textarea 
+                        id="promptInput" 
+                        placeholder="e.g., Make this a watercolor painting, Transform into anime style, Add a sunset background..."
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <button class="transform-btn" id="transformBtn" disabled>
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    Transform Image
+                </button>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Transformation Results</h2>
+                <div class="image-comparison">
+                    <div class="image-container">
+                        <h3>Original Image</h3>
+                        <img id="originalImage" alt="Original image">
+                    </div>
+                    <div class="image-container">
+                        <h3>Transformed Image</h3>
+                        <img id="transformedImage" alt="Transformed image">
+                        <div class="loading-spinner" id="loadingSpinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Transforming your image...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="prompt-display">
+                    <h4>Applied Prompt:</h4>
+                    <p id="appliedPrompt"></p>
+                </div>
+                <button class="download-btn" id="downloadBtn" style="display: none;">
+                    <i class="fas fa-download"></i>
+                    Download Result
+                </button>
+            </div>
+        </main>
+
+        <div class="history-section" id="historySection">
+            <h2><i class="fas fa-history"></i> Generation History</h2>
+            <div class="history-container" id="historyContainer">
+                <div class="loading-history">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading history...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <i class="fas fa-spinner fa-spin"></i>
+                <h3>Processing your image...</h3>
+                <p>This may take a few moments</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
